@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:WiringDiagramConstructionMachine.Controls"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="#F8F8F8"
+             x:Class="WiringDiagramConstructionMachine.Views.KomatsuPage">
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <ScrollView AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+                <Grid RowDefinitions="Auto,Auto,Auto" ColumnDefinitions="*,*" Padding="10" VerticalOptions="Center">
+                    <Label Grid.Row="0" Grid.ColumnSpan="2" Text="KOMATSU" FontSize="25" TextColor="#4E82BD" FontAttributes="Bold" HorizontalTextAlignment="Center" Margin="0,60"/>
+                    <Frame Grid.Row="1" Grid.Column="0" Padding="10,40" CornerRadius="10" HorizontalOptions="FillAndExpand">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="PcExcavator_Tapped"/>
+                        </Frame.GestureRecognizers>
+                        <Label Text="PC EXCAVATOR" FontSize="16" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="#444444"/>
+                    </Frame>
+                    <Frame Grid.Row="1" Grid.Column="1" Padding="10,40" CornerRadius="10" HorizontalOptions="FillAndExpand">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="PwExcavator_Tapped"/>
+                        </Frame.GestureRecognizers>
+                        <Label Text="PW EXCAVATOR" FontSize="16" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="#444444"/>
+                    </Frame>
+                    <Frame Grid.Row="2" Grid.Column="0" Padding="10,40" CornerRadius="10" HorizontalOptions="FillAndExpand">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="WhellLoader_Tapped"/>
+                        </Frame.GestureRecognizers>
+                        <Label Text="WHEEL LOADER" FontSize="16" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="#444444"/>
+                    </Frame>
+                    <Frame Grid.Row="2" Grid.Column="1" Padding="10,40" CornerRadius="10" HorizontalOptions="FillAndExpand">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="DBulldozer_Tapped"/>
+                        </Frame.GestureRecognizers>
+                        <Label Text="D BULLDOZER" FontSize="16" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="#444444"/>
+                    </Frame>
+                </Grid>
+            </ScrollView>
+            <StackLayout x:Name="stAdd" IsVisible="false" AbsoluteLayout.LayoutBounds="0,1,1,60" AbsoluteLayout.LayoutFlags="XProportional,YProportional,WidthProportional" Padding="0,10,10,10">
+                <Frame Padding="0" BackgroundColor="#4E82BD" HeightRequest="40" WidthRequest="40" CornerRadius="20" HorizontalOptions="End">
+                    <Button Text="&#xf067;" FontFamily="FontAwesomeSolid" FontSize="24" BackgroundColor="#4E82BD" Padding="0" HeightRequest="40" WidthRequest="40" CornerRadius="20" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" Clicked="AddFile_Clicked"/>
+                </Frame>
+            </StackLayout>
+            <controls:LoadingPopup x:Name="Loading"/>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

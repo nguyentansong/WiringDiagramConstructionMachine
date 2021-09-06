@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:WiringDiagramConstructionMachine.Controls"
+             Title="Thêm file"
+             BackgroundColor="#F8F8F8"
+             x:Class="WiringDiagramConstructionMachine.Views.AddFilePdfPage">
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <ScrollView AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+                <StackLayout x:Name="stContent" Padding="10" Spacing="20">
+                    <Frame BackgroundColor="White" Padding="10,0">
+                        <Picker x:Name="pickerParent" Title="Tuỳ chọn" FontSize="18" BackgroundColor="White" ItemsSource="{Binding Parents}" SelectedItem="{Binding SelectedItemParent}" ItemDisplayBinding="{Binding Name}" SelectedIndexChanged="pickerParent_SelectedIndexChanged"/>
+                    </Frame>
+                    <Frame BackgroundColor="White" Padding="10,0">
+                        <Picker x:Name="pickerSub1" Title="Tuỳ chọn" FontSize="18" BackgroundColor="White" ItemsSource="{Binding Subs1}" SelectedItem="{Binding SelectedItemSub1}" ItemDisplayBinding="{Binding Name}" SelectedIndexChanged="pickerSub1_SelectedIndexChanged"/>
+                    </Frame>
+                    <Frame BackgroundColor="White" Padding="10,0" IsVisible="{Binding IsHitachi}">
+                        <Picker x:Name="pickerSub2" Title="Tuỳ chọn" FontSize="18" BackgroundColor="White" SelectedItem="{Binding SelectedItemSub2}" ItemsSource="{Binding Subs2}" ItemDisplayBinding="{Binding Name}" SelectedIndexChanged="pickerSub2_SelectedIndexChanged"/>
+                    </Frame>
+                    <Frame BackgroundColor="White" Padding="10,0">
+                        <Entry Placeholder="Tên file" Text="{Binding Name}"/>
+                    </Frame>
+                    
+                    <Frame Padding="10,5" VerticalOptions="Center" >
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="ChoseFile_Tapped"/>
+                        </Frame.GestureRecognizers>
+                        <Label Text="Chọn file" FontSize="18" TextColor="#444444" HorizontalOptions="Center"/>
+                    </Frame>
+                    <Label x:Name="lblPdf" IsVisible="false">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="&#xf1c1;" FontFamily="FontAwesomeRegular" FontSize="20" TextColor="Red"/>
+                                <Span Text="  "/>
+                                <Span Text="{Binding FileName}" TextColor="#444" FontSize="18"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </StackLayout>
+            </ScrollView>
+            <StackLayout AbsoluteLayout.LayoutBounds="0,1,1,60" AbsoluteLayout.LayoutFlags="XProportional,YProportional,WidthProportional" Padding="10,0,10,0">
+                <Frame Padding="0" CornerRadius="10" BackgroundColor="#4E82BD">
+                    <Button Text="Lưu" TextColor="White" FontAttributes="Bold" CornerRadius="10" BackgroundColor="#4E82BD" HeightRequest="35" Padding="0" Clicked="Save_Clicked"/>
+                </Frame>
+            </StackLayout>
+            <controls:LoadingPopup x:Name="Loading"/>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:WiringDiagramConstructionMachine.Controls"
+    Shell.TabBarIsVisible="False"
+    x:Class="WiringDiagramConstructionMachine.Views.PdfViewPage">
+    <ContentPage.Content>
+        <controls:PdfView x:Name="PdfDocView" VerticalOptions="FillAndExpand" />
+        <!--<WebView x:Name="PdfDocView" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>-->
+    </ContentPage.Content>
+</ContentPage>

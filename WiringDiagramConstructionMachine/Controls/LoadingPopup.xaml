@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" BackgroundColor="#90000000"
+    xmlns="http://xamarin.com/schemas/2014/forms" IsVisible="{Binding ShowHide}"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="WiringDiagramConstructionMachine.Controls.LoadingPopup">
+    <ActivityIndicator IsRunning="True" Color="White" VerticalOptions="CenterAndExpand" HorizontalOptions="Center"/>
+</ContentView>

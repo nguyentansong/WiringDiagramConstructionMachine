@@ -1,0 +1,46 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2083" />  
+    <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
+    <PackageReference Include="Xam.Plugins.Settings" Version="3.1.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="FirebaseStorage.net" Version="1.0.3" />
+    <PackageReference Include="Xam.Plugin.Connectivity" Version="3.2.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\" />
+    <Folder Include="Services\" />
+    <Folder Include="ViewModels\" />
+    <Folder Include="Fonts\" />
+    <Folder Include="IServices\" />
+    <Folder Include="Settings\" />
+    <Folder Include="Helper\" />
+    <Folder Include="Configuration\" />
+    <Folder Include="Controls\" />
+    <Folder Include="Converters\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Fonts\FontAwesome5BrandsRegular.otf" />
+    <None Remove="Fonts\FontAwesome5Regular.otf" />
+    <None Remove="Fonts\FontAwesome5Solid.otf" />
+    <None Remove="Converters\" />
+    <None Remove="Telerik.UI.for.Xamarin" />
+    <None Remove="Syncfusion.Xamarin.SfPdfViewer" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Fonts\FontAwesome5BrandsRegular.otf" />
+    <EmbeddedResource Include="Fonts\FontAwesome5Regular.otf" />
+    <EmbeddedResource Include="Fonts\FontAwesome5Solid.otf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="WDCM_Api.Entities">
+      <HintPath>..\WDCM_Api.Entities.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>

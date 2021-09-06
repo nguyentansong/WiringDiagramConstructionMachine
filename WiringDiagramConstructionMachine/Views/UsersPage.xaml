@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converters="clr-namespace:WiringDiagramConstructionMachine.Converters"
+    xmlns:controls="clr-namespace:WiringDiagramConstructionMachine.Controls"
+    x:Class="WiringDiagramConstructionMachine.Views.UsersPage"
+    Title="Danh sách user">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ActiveConverter x:Key="activeConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <Grid RowDefinitions="Auto,*" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+                <SearchBar Grid.Row="0" Placeholder="Tìm kiếm" Text="{Binding Keyword}" FontSize="15" Keyboard="Numeric" SearchButtonPressed="SearchBar_SearchButtonPressed" TextChanged="SearchBar_TextChanged"/>
+                <ListView Grid.Row="1" ItemsSource="{Binding Users}" ItemTapped="ListViewItem_Tapped"  HasUnevenRows="True" SelectionMode="None" IsPullToRefreshEnabled="True" IsRefreshing="{Binding IsRefreshing}" RefreshCommand="{Binding RefreshCommand}" ItemAppearing="listView_ItemAppearing">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Padding="10">
+                                    <Grid ColumnDefinitions="Auto,Auto,*">
+                                        <Label Grid.Column="0" Text="{Binding Phone}" FontSize="16" FontAttributes="Bold" TextColor="#4E82BD"/>
+                                        <Label Grid.Column="1" Text="{Binding UserRole,StringFormat=' - {0}'}" FontSize="14" FontAttributes="Bold" TextColor="#666666" HorizontalOptions="Start" VerticalOptions="Center" />
+                                        <Label Grid.Column="2" HorizontalTextAlignment="End" HorizontalOptions="EndAndExpand" Padding="3,2" BackgroundColor="{Binding IsActive,Converter={StaticResource activeConverter}}">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="&#xf058;" FontFamily="FontAwesomeSolid" FontSize="16" TextColor="White"/>
+                                                    <Span Text=" Kích hoạt" TextColor="White" FontSize="13" />
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                    </Grid>
+                                    <Label Text="{Binding CreateDate,StringFormat='{0:dd/MM/yyyy}'}" TextColor="#333333" FontSize="15"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+            <controls:LoadingPopup x:Name="Loading"/>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

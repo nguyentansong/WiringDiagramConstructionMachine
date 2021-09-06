@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:WiringDiagramConstructionMachine.Controls"
+             BackgroundColor="#F8F8F8"
+             x:Class="WiringDiagramConstructionMachine.Views.ChildsPage">
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <CollectionView x:Name="listSubMenu" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" ItemsSource="{Binding SubMenus}" Margin="10">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" Span="2"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Padding="5">
+                            <Frame Padding="10,30" CornerRadius="10">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Item_Tapped" CommandParameter="{Binding}"/>
+                                </Frame.GestureRecognizers>
+                                <Label Text="{Binding Name}" TextColor="#444444" FontSize="16" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                            </Frame>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <controls:LoadingPopup x:Name="Loading"/>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

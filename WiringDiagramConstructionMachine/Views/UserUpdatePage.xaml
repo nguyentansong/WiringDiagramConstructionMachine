@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    Title="{Binding User.Phone}"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="WiringDiagramConstructionMachine.Views.UserUpdatePage">
+    <ContentPage.Content>
+        <AbsoluteLayout >
+            <StackLayout Padding="10" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Kích hoạt tài khoản" FontSize="16" TextColor="#333333"/>
+                    <Switch IsToggled="{Binding User.IsActive}" HorizontalOptions="EndAndExpand"/>
+                </StackLayout>
+                <Label FontSize="16" TextColor="#333333">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Loại tài khoản: "/>
+                            <Span Text="{Binding User.UserRole}"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </StackLayout>
+            <StackLayout AbsoluteLayout.LayoutBounds="0,1,1,60" AbsoluteLayout.LayoutFlags="XProportional,YProportional,WidthProportional" BackgroundColor="White">
+                <Button Text="Cập nhật" Clicked="Update_Clicked" FontSize="15" TextColor="White" BackgroundColor="#4E82BD" CornerRadius="10" Margin="10,5"/>
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

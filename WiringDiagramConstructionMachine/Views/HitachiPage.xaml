@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:WiringDiagramConstructionMachine.Controls"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="#F8F8F8"
+             x:Class="WiringDiagramConstructionMachine.Views.HitachiPage">
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <ScrollView AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+                <StackLayout Padding="10" VerticalOptions="Center">
+                    <Label Text="HITACHI" FontSize="25" TextColor="#4E82BD" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="0,60"/>
+                    <Frame Padding="10,40" CornerRadius="10" HorizontalOptions="FillAndExpand">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Excavator_Tapped"/>
+                        </Frame.GestureRecognizers>
+                        <Label Text="EXCAVATOR" FontSize="16" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="#444444"/>
+                    </Frame>
+                    <Frame Padding="10,40" CornerRadius="10" HorizontalOptions="FillAndExpand">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1"  Tapped="WhellLoader_Tapped"/>
+                        </Frame.GestureRecognizers>
+                        <Label Text="WHEEL LOADER" FontSize="16" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="#444444"/>
+                    </Frame>
+                </StackLayout>
+            </ScrollView>
+            <StackLayout x:Name="stAdd" IsVisible="false" AbsoluteLayout.LayoutBounds="0,1,1,60" AbsoluteLayout.LayoutFlags="XProportional,YProportional,WidthProportional" Padding="0,10,10,10">
+                <Frame Padding="0" BackgroundColor="#4E82BD" HeightRequest="40" WidthRequest="40" CornerRadius="20" HorizontalOptions="End">
+                    <Button Text="&#xf067;" FontFamily="FontAwesomeSolid" FontSize="24" BackgroundColor="#4E82BD" Padding="0" HeightRequest="40" WidthRequest="40" CornerRadius="20" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" Clicked="AddFile_Clicked"/>
+                </Frame>
+            </StackLayout>
+            <controls:LoadingPopup x:Name="Loading"/>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

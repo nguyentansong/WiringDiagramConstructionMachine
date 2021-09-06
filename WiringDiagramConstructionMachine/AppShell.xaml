@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:views="clr-namespace:WiringDiagramConstructionMachine.Views"
+       Title="WiringDiagramConstructionMachine"
+       Shell.BackgroundColor="#4E82BD"
+       Shell.ForegroundColor="White"
+       Shell.TitleColor="White"
+       Shell.DisabledColor="#B4FFFFFF"
+       Shell.UnselectedColor="#95FFFFFF"
+       Shell.TabBarBackgroundColor="White"
+       Shell.TabBarForegroundColor="#4E82BD"
+       Shell.TabBarUnselectedColor="Gray"
+       Shell.TabBarTitleColor="#4E82BD"
+       x:Class="WiringDiagramConstructionMachine.AppShell">
+    <TabBar x:Name="tabBarMenu">
+        <Tab Title="Komatsu">
+            <Tab.Icon>
+                <FontImageSource FontFamily="FontAwesomeBrands" Glyph="&#xf3bb;" Size="16" />
+            </Tab.Icon>
+           <ShellContent ContentTemplate="{DataTemplate views:KomatsuPage}" />
+        </Tab>
+        <Tab Title="Kobelco" >
+            <Tab.Icon>
+                <FontImageSource FontFamily="FontAwesomeBrands" Glyph="&#xf42f;" Size="16" />
+            </Tab.Icon>
+           <ShellContent ContentTemplate="{DataTemplate views:KobelcoPage}" />
+        </Tab>
+        <Tab Title="Hitachi">
+            <Tab.Icon>
+                <FontImageSource FontFamily="FontAwesomeSolid" Glyph="&#xf0fd;" Size="16" />
+            </Tab.Icon>
+           <ShellContent ContentTemplate="{DataTemplate views:HitachiPage}" />
+        </Tab>
+    </TabBar>
+</Shell>
